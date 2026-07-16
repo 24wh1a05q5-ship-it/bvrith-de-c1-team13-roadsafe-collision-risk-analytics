@@ -14,28 +14,31 @@
 
 ## 1. Project Summary
 
-Write 5–8 lines explaining the assigned project.
+RoadSafe is a data engineering project that transforms approximately **120,000** raw UK Department for Transport (STATS19) collision, vehicle, and casualty records into a trusted lakehouse pipeline and a decision-ready safety intelligence dashboard.
 
-Example structure:
+Using **Databricks**, **Spark SQL**, and **PySpark**, the project implements a **Medallion Architecture**—moving data from **Bronze (raw)** to **Silver (cleaned and joined)** and finally to **Gold (KPI-driven)** layers—while applying rigorous **Data Quality (DQ)** rules to quarantine rather than delete defective records.
 
-- **Domain:** [Urban Mobility / IPL Matchday / Weather / etc.]
-- **Core engineering problem:** [What raw data needs to become trusted insight?]
-- **Main pipeline:** Raw Sources → Bronze → Silver → Data Quality → Gold → Power BI → Streaming Simulation
-- **Final outcome:** GitHub repo, Databricks notebooks, Gold outputs, Power BI dashboard, streaming simulation, final demo.
+This architecture ensures that the final three-view **Power BI** dashboard (**Safety Overview**, **Risk Hotspots**, and **Live Incident Feed**) provides traceable and reliable insights for stakeholders such as road safety leads and traffic analysts.
 
----
+Additionally, the pipeline incorporates a simulated streaming layer using **Structured Streaming** to process live JSON incident alerts, demonstrating the system's ability to maintain accurate metrics even when faced with late or malformed data.
+
+- **Domain:** Transportation safety using official UK Department for Transport (STATS19) road collision data with an ethical, public-impact focus.
+- **Core engineering problem:** Transform fragmented raw datasets (collisions, vehicles, and casualties) into a unified, reliable lakehouse pipeline while resolving data quality issues such as invalid severity codes and missing referential links.
+- **Main pipeline:** Bronze (raw with metadata) → Silver (cleaned and joined) → Data Quality (quarantine rules) → Gold (business KPIs) → Power BI (connected only to Gold tables) → Week 10 Streaming Simulation (JSON alerts via Structured Streaming).
+- **Final outcome:** A complete end-to-end data engineering pipeline, a three-view Power BI dashboard (Safety Overview, Risk Hotspots, and Live Incident Feed), a live incident streaming demonstration, and a well-documented GitHub repository containing the complete project implementation.
 
 ## 2. Tools Used
 
 | Tool | Purpose |
-|---|---|
-| Databricks Free Edition | Spark SQL notebooks, light Python/PySpark, Bronze/Silver/Gold tables, streaming simulation |
-| GitHub | Repository, weekly evidence, documentation, screenshots, commits |
-| Power BI Desktop | Dashboard from Gold outputs |
-| AI Assistant | Explanation, debugging, review, documentation support with manual verification |
-
----
-
+|------|---------|
+| **Databricks (Free Edition)** | Serves as the primary development platform for processing the ~120,000 collision records and building the core data pipeline. |
+| **Spark SQL** | The primary language used for the "Spark SQL first" development approach to build the medallion architecture. |
+| **PySpark** | Utilized for light development alongside Spark SQL within the Databricks environment. |
+| **Power BI Desktop** | Used to create a three-view dashboard (Safety Overview, Risk Hotspots, and Live Incident Feed) that connects exclusively to Gold tables to visualize verified data. |
+| **GitHub** | Acts as the central repository for code, Databricks notebooks, and documenting mandatory weekly evidence to prove every step of the build. |
+| **Auto Loader & Structured Streaming** | Spark technologies implemented in Week 10 to handle the landing of JSON event files and transform them into live metrics. |
+| **File Formats (CSV & JSON)** | The project uses **CSV** for the main batch data (collisions, vehicles, and casualties) and **JSON** for simulated live incident alert events. |
+| **Kafka (Design-Awareness)** | While not actually installed, Kafka concepts like topics, keys, and partitions are documented to demonstrate design awareness for the streaming layer. |
 ## 3. Repository Navigation
 
 | Folder / File | Purpose |
