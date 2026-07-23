@@ -36,15 +36,17 @@ This project uses *synthetic road safety data* based on the official *2024 UK De
 
 ---
 
-## 4. Controlled Data Quality Issues
+# 4. Controlled Data Quality Issues
+
+> *Note:* The percentages below are *target ranges*. Replace them with the exact measured percentages obtained from the Databricks starter notebook.
 
 | Issue Type | Approx. Share | Why Include It |
-|---|---:|---|
-| Duplicate IDs | 0.2%–0.5% | Tests uniqueness |
-| Missing values | 1%–3% | Tests completeness |
-| Invalid reference keys | 0.5%–1% | Tests referential integrity |
-| Negative / impossible values | 0.1%–0.5% | Tests range rules |
-| Timestamp inconsistencies | 0.1%–0.3% | Tests chronology |
+|------------|--------------:|----------------|
+| Duplicate IDs | 0.2%–0.5% | Tests uniqueness of collision_index and composite keys |
+| Missing Values | 1%–3% | Tests completeness of coordinates and member identifiers |
+| Invalid Reference Keys | 0.5%–1% | Tests orphan records (e.g., vehicles with no parent collision) |
+| Negative / Impossible Values | 0.1%–0.5% | Tests range validation for driver age and speed limits |
+| Timestamp Inconsistencies | 0.1%–0.3% | Tests date validity within the 2024 calendar year |
 
 ---
 
