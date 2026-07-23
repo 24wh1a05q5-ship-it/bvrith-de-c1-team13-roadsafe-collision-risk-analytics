@@ -24,14 +24,15 @@ This project uses *synthetic road safety data* based on the official *2024 UK De
 
 ---
 
-## 3. Data Volume Assumptions
+# 3. Data Volume Assumptions
 
 | File | Approximate Rows | Reason |
-|---|---:|---|
-| `[source_file_1].csv` | [rows] | [reason] |
-| `[source_file_2].csv` | [rows] | [reason] |
-| `[reference_file].csv` | [rows] | [reason] |
-| `[streaming_events].json` | [rows] | [reason] |
+|------|-----------------:|--------|
+| collisions.csv | 101,527 | Main event grain: one row per reported collision |
+| vehicles.csv | 183,514 | Involved vehicle grain: multiple vehicles per collision |
+| casualties.csv | 128,272 | Victim grain: multiple casualties per collision |
+| lookups/*.csv | 1,775 | Combined rows for collision, vehicle, and casualty decoding |
+| incident_alert_drop_*.json | 34 | Total simulation events across six structured drops |
 
 ---
 
