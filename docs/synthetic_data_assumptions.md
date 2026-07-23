@@ -12,15 +12,15 @@ This project uses *synthetic road safety data* based on the official *2024 UK De
 
 ---
 
-## 2. Domain Assumptions
+# 2. Domain Assumptions
 
 | Area | Assumption |
-|---|---|
-| Geography / scope | [Example: Hyderabad and nearby regions] |
-| Time period | [Example: July to September 2026] |
-| Source systems | [Example: Two different operational feeds] |
-| Event types | [Example: booking, scan, alert, transaction] |
-| Reference data | [Example: zones, categories, products, venues] |
+|------|------------|
+| *Geography / Scope* | UK public road network across various police forces and local authorities |
+| *Time Period* | 1 January 2024 to 31 December 2024 |
+| *Source Systems* | Police-reported collision systems, vehicle registration links, and casualty recording feeds |
+| *Event Types* | Personal-injury collisions, vehicle involvements, and recorded casualties |
+| *Reference Data* | Official DfT code lookups for police forces, collision severity, road types, junctions, and casualty classes |
 
 ---
 
