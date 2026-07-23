@@ -58,4 +58,4 @@ Before using the generated data, verify that:
 - Key fields exist and follow the expected string and integer formats.
 - Dates are within *2024*, and geographic coordinates fall within valid UK boundaries.
 - Controlled data quality defects exist (verified using SQL queries) but do not dominate the dataset.
-- Source files maintain distinct grains (*Collision, **Vehicle, and **Casualty*) and are standardized before downstream processing.
+- Source files maintain distinct grains (*Collision*, *Vehicle*, and *Casualty*) and are standardized before downstream processing.
