@@ -50,12 +50,12 @@ This project uses *synthetic road safety data* based on the official *2024 UK De
 
 ---
 
-## 5. Manual Verification
+# 5. Manual Verification Checklist
 
-Before using generated data, the team must check:
+Before using the generated data, verify that:
 
-- Row counts are reasonable.
-- Key fields exist.
-- Dates and numeric values look realistic.
-- Controlled defects exist but do not dominate the dataset.
-- Source files are different enough to require real standardization.
+- Row counts match the source inventory precisely.
+- Key fields exist and follow the expected string and integer formats.
+- Dates are within *2024*, and geographic coordinates fall within valid UK boundaries.
+- Controlled data quality defects exist (verified using SQL queries) but do not dominate the dataset.
+- Source files maintain distinct grains (*Collision, **Vehicle, and **Casualty*) and are standardized before downstream processing.
