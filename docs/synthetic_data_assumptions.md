@@ -1,13 +1,14 @@
 # Synthetic Data Assumptions
 
-**Week:** 2  
-**Purpose:** Document how educational data is created.
+*Week:* 2  
+*Purpose:* Document how synthetic data for the *RoadSafe Collision Risk Analytics* project is created and measured.
 
 ---
 
-## 1. Synthetic Data Boundary
+# 1. Synthetic Data Boundary
 
-This project uses synthetic educational data only. It must not be presented as real company, customer, citizen, player, patient, government, or platform data.
+This project uses *synthetic road safety data* based on the official *2024 UK Department for Transport (DfT) STATS19 open dataset. The data is intended solely for educational and analytical purposes and **must not be presented as real company, customer, citizen, patient, government, or platform data*.
+
 
 ---
 
