@@ -3,7 +3,7 @@
 **Week:** 7  
 **Date range:** 04-09-2026 to 09-09-2026  
 **Team:** 13  
-**Project:** Road Accident Data Engineering Project
+**Project:** Road Accident Data Engineering Project - RoadSafe Collision Risk Analytics
 
 ---
 
@@ -27,7 +27,7 @@ that the Gold outputs were reliable and reproducible.
 | Created `gold_collision_monthly_summary` | Harshika | Done | `notebooks/05_gold_aggregations.ipynb` |
 | Validated collision monthly summary grain, keys, measures and scope | Aishwarya | Done | `notebooks/05_gold_aggregations.ipynb` |
 | Created `gold_vehicle_type_summary` | Harshika | Done | `notebooks/05_gold_aggregations.ipynb` |
-| Validated vehicle type summary measures, scope and rerun consistency | Harshika | Done | `notebooks/05_gold_aggregations.ipynb` |
+| Validated vehicle type summary measures, scope and rerun consistency | Aishwarya | Done | `notebooks/05_gold_aggregations.ipynb` |
 | Created `gold_casualty_severity_summary` | Harshika | Done | `notebooks/05_gold_aggregations.ipynb` |
 | Validated casualty severity summary measures, scope and rerun consistency | Aishwarya | Done | `notebooks/05_gold_aggregations.ipynb` |
 | Performed controlled rerun comparisons for Gold outputs | Harshika | Done | `notebooks/05_gold_aggregations.ipynb` |
