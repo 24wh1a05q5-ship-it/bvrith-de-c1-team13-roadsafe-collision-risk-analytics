@@ -17,10 +17,10 @@ Implement and validate DQ-01 to DQ-08 on the Collision, Vehicle, and Casualty Si
 
 | Task | Owner | Status | Evidence |
 |---|---|---|---|
-| Implemented DQ-01 to DQ-08 validation checks | Team 13 | Done | Databricks DQ notebook |
-| Created PASS/FAIL status views | Team 13 | Done | DQ result screenshots |
-| Created Trusted Silver and Quarantine tables | Team 13 | Done | Databricks tables |
-| Completed final record reconciliation | Team 13 | Done | Reconciliation output |
+| Implemented DQ-01 to DQ-08 validation checks | Harshika | Done | week_06_dq_rules.jpeg |
+| Created PASS/FAIL status views | Aishwarya | Done | week06_dq_results.jpeg |
+| Created Trusted Silver and Quarantine tables | Harshika| Done | week06_trusted_quarantine.jpeg|
+| Completed final record reconciliation | Team 13 |Avishka| week06_dq_reconcilliation.jpeg |
 
 ### Final Record Routing
 
