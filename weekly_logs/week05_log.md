@@ -17,17 +17,13 @@ Develop the **Silver Candidate transformation layer** from the Bronze road-safet
 
 | Task | Owner | Status | Evidence |
 |---|---|---|---|
-| Created Silver Candidate transformation for collision data | Harshika | Done | `03_silver_transformations.ipynb` |
-| Converted collision fields from strings to appropriate numeric types | Avishka | Done | Notebook output / schema |
-| Created `collision_timestamp` using tolerant timestamp parsing | Aishwarya | Done | Notebook output |
-| Created collision time features such as month, hour, weekday and time band | Harshika | Done | Notebook output |
-| Created severe-collision and urban/rural analytical flags | Avishka | Done | Notebook output |
-| Created Silver Candidate transformation for vehicle data | Aishwarya | Done | `03_silver_transformations.ipynb` |
-| Created `vehicle_key` using collision and vehicle references | Harshika | Done | Notebook output |
-| Created Silver Candidate transformation for casualty data | Avishka | Done | `03_silver_transformations.ipynb` |
-| Created `casualty_key` and casualty analytical fields | Aishwarya | Done | Notebook output |
-| Compared Bronze and Candidate row counts | Harshika | Done | Validation output |
-| Checked duplicate and missing key components | Aishwarya | Done | Notebook output |
+| Converted collision fields from strings to appropriate numeric types | Avishka | Done |week05_collision_type_conversion.png|
+| Created `collision_timestamp` using tolerant timestamp parsing | Aishwarya | Done | week05_collision_timestamp.png| |
+| Created collision time features such as month, hour, weekday and time band | Harshika | Done | week05_collision_time_features.png |
+| Created severe-collision and urban/rural analytical flags | Avishka | Done | week05_collision_time_features.png|
+| Created Silver Candidate transformation for vehicle data | Aishwarya | Done | week05_vehicle_transformation.png|
+| Created Silver Candidate transformation for casualty data | Avishka | Done | week05_casualty_transformation.png |
+| Compared Bronze and Candidate row counts | Harshika | Done | week05_key_validation.png|
 
 ---
 
