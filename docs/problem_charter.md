@@ -1,105 +1,145 @@
 # Problem Charter
 
 **Week:** 1  
-**Owner(s):** Raikode Avishka,Harshika.k,Akkepally Aishwarya.  
+**Owner(s):** Raikode Avishka, Harshika K., Akkepally Aishwarya  
+**Team:** Team 13  
 **Project:** RoadSafe: Collision Risk Analytics
 
 ---
 
 ## 1. Problem Context
 
-### Simple Paragraph
+### Problem Statement
 
-The **RoadSafe** project simulates a public road safety analytics system that transforms raw UK Department for Transport (STATS19) collision, vehicle, and casualty data into reliable insights. Since the raw data may contain missing links, invalid values, and inconsistencies, the project applies data quality checks and processes the data through a trusted pipeline. The final Power BI dashboard helps road safety teams, traffic analysts, and decision-makers monitor accident trends, identify high-risk locations, and support informed safety decisions.
+RoadSafe is a road safety analytics project that transforms UK Department for Transport (DfT) STATS19 collision data into reliable and meaningful safety insights. The source data contains collision, vehicle, and casualty information that may include missing values, invalid codes, duplicate records, and inconsistent relationships between datasets.
+
+The project addresses these challenges by developing a structured data engineering pipeline using Databricks and the Medallion Architecture. The processed data is used to generate trusted safety metrics and Power BI dashboards that help road safety stakeholders understand collision patterns, identify high-risk areas, and support data-driven safety decisions.
 
 ### Key Points
 
-- Simulates a public road safety analytics system.
-- Uses approximately **120,000** UK Department for Transport (STATS19) records.
-- Processes collision, vehicle, casualty, and simulated live incident data.
-- Cleans and validates raw data to improve quality and reliability.
-- Resolves issues such as missing links, invalid values, and inconsistent records.
-- Produces trusted metrics and dashboards for analysis.
-- Helps road safety leads identify high-risk roads and accident patterns.
-- Enables traffic analysts to study trends based on time, weather, and location.
-- Provides a live incident view for monitoring recent events.
-- Supports data quality teams in ensuring accurate and reliable reporting.
+- Uses UK Department for Transport (DfT) STATS19 road safety data.
+- Processes collision, vehicle, and casualty datasets.
+- Handles data quality issues such as missing values and invalid codes.
+- Validates relationships between related datasets.
+- Uses a Bronze → Silver → Gold data architecture.
+- Produces trusted metrics for road safety analysis.
+- Provides Power BI dashboards for decision-making.
+- Supports analysis of collision trends by time, location, road conditions, and other available attributes.
+
+---
 
 ## 2. Engineering Problem
 
-### Simple Paragraph
+### Engineering Problem Statement
 
-The **RoadSafe** project transforms approximately **120,000** fragmented UK road safety records—including collision, vehicle, and casualty data—into a trusted lakehouse pipeline using **Databricks**, **Spark SQL**, **PySpark**, and **Power BI**. The pipeline cleans and validates the data through the **Bronze**, **Silver**, and **Gold** layers while applying data quality rules to quarantine invalid records. It also processes simulated live JSON incident alerts using **Structured Streaming** to deliver reliable real-time safety metrics.
+The RoadSafe project needs to transform raw and fragmented road safety datasets into a reliable analytical data platform. Collision, vehicle, and casualty records must be ingested, cleaned, validated, related correctly, and transformed into trusted datasets without losing the original source information.
 
-### Key Points
+The solution uses Databricks, Spark SQL, and PySpark to implement a Medallion Architecture consisting of Bronze, Silver, and Gold layers. Data quality rules are applied during processing to identify invalid records and maintain traceability. The resulting Gold-layer datasets are used by Power BI for road safety analysis.
 
-- Transforms approximately **120,000** raw road safety records into a trusted lakehouse.
-- Processes collision, vehicle, and casualty datasets.
-- Implements a **Medallion Architecture** with Bronze, Silver, and Gold layers.
-- Applies data quality rules to detect and quarantine invalid records.
-- Resolves issues such as invalid severity codes and missing referential links.
-- Integrates simulated live JSON incident alerts using **Structured Streaming**.
-- Produces reliable batch and real-time safety metrics.
-- Supports accurate reporting and data-driven decision-making through Power BI dashboards.
+### Engineering Requirements
+
+- Ingest the required STATS19 collision, vehicle, and casualty datasets.
+- Preserve raw source data in the Bronze layer.
+- Clean and standardize data in the Silver layer.
+- Validate relationships between collision, vehicle, and casualty records.
+- Identify missing, invalid, duplicate, or inconsistent records.
+- Quarantine records that fail defined data quality rules.
+- Generate trusted analytical datasets in the Gold layer.
+- Create meaningful road safety KPIs from Gold-layer data.
+- Connect Power BI only to validated Gold-layer datasets.
+- Maintain GitHub documentation and evidence throughout development.
+
+---
+
 ## 3. Users / Stakeholders
 
-### Simple Paragraph
+RoadSafe is intended to support stakeholders involved in road safety monitoring, analysis, and reporting.
 
-The **RoadSafe** project is designed for different stakeholders involved in road safety analysis and decision-making. Each user relies on trusted data and dashboards to monitor accident trends, identify high-risk locations, improve public safety, and ensure the accuracy of reported metrics.
+| User / Stakeholder | Requirement / Use of Data |
+|---|---|
+| **Road Safety Program Lead** | Identify high-risk road types and locations and prioritize safety improvements. |
+| **Traffic Operations Analyst** | Analyze collision trends based on time, road conditions, weather, and location. |
+| **Public Safety Communications Lead** | Access reliable incident information for safety communication and reporting. |
+| **Data Quality Owner** | Monitor data quality and ensure that analytical results are based on valid records. |
 
-### Stakeholders and Their Needs
-
-| **User / Stakeholder** | **What They Need from the Data** |
-|-------------------------|----------------------------------|
-| **Road Safety Program Lead** | Identify high-risk road types and locations to prioritize safety improvements and interventions. |
-| **Traffic Operations Analyst** | Monitor collision trends based on time, weather, and road conditions to support traffic planning. |
-| **Public Safety Communications Lead** | View a reliable live incident feed for accurate public updates without relying on unverified alerts. |
-| **Data Quality Owner** | Ensure consistent, accurate, and trustworthy data for reporting and decision-making. |
+---
 
 ## 4. Scope Inclusions
 
-### Simple Paragraph
+The project covers the development of an end-to-end road safety data engineering pipeline and analytics solution.
 
-The **RoadSafe** project includes building a complete end-to-end lakehouse pipeline and analytics dashboard for road safety data. The project covers data ingestion, cleaning, validation, transformation, KPI generation, dashboard visualization, streaming simulation, and complete project documentation to ensure reliable and traceable analytics.
+### Included in the Project
 
-### Key Inclusions
+- **Data Ingestion:** Ingest the available UK DfT STATS19 collision, vehicle, and casualty datasets into the project environment.
+- **Bronze Layer:** Store source data with minimal transformation while maintaining source-level traceability.
+- **Silver Layer:** Clean, standardize, and integrate related datasets.
+- **Data Quality:** Apply validation rules to identify missing, invalid, duplicate, and inconsistent records.
+- **Quarantine:** Separate records that fail data quality checks so that they are not included in trusted analytical outputs.
+- **Gold Layer:** Create business-ready tables containing road safety metrics and aggregated information.
+- **Power BI:** Develop dashboards using Gold-layer tables for safety analysis and visualization.
+- **Streaming Simulation:** Process simulated incident information to demonstrate near-real-time data processing.
+- **Documentation:** Maintain weekly logs, notebooks, data dictionaries, project documentation, and supporting evidence in GitHub.
 
-- **Raw Source Files:** Ingest approximately **120,000** UK Department for Transport (STATS19) records from collision, vehicle, and casualty CSV files, along with simulated JSON incident alerts.
-- **Bronze Layer:** Store raw data with metadata while preserving the original records for auditing and traceability.
-- **Silver Layer:** Clean, standardize, and join datasets into structured tables using collisions as the primary dataset.
-- **Data Quality Checks:** Detect, validate, and quarantine invalid or inconsistent records instead of deleting them.
-- **Gold Layer:** Generate trusted KPI tables, such as severity summaries and road type risk summaries, for reporting and analysis.
-- **Power BI Dashboard:** Create three dashboard views—**Safety Overview**, **Risk Hotspots**, and **Live Incident Feed**—using only Gold tables.
-- **Streaming Simulation:** Process live JSON incident alerts using **Auto Loader** and **Structured Streaming** to update real-time metrics.
-- **GitHub Documentation:** Maintain Databricks notebooks, data dictionaries, weekly evidence, and project documentation throughout the 12-week development process.
+---
 
 ## 5. Scope Exclusions
 
-### Simple Paragraph
+The following items are outside the scope of the RoadSafe project:
 
-The **RoadSafe** project focuses only on building a trusted data engineering lakehouse pipeline and analytics dashboard. Features such as traffic prediction, navigation systems, personal data processing, direct visualization from raw data, Kafka deployment, and unexplained AI-generated code are intentionally excluded to keep the project aligned with its objectives and academic requirements.
+- **Traffic Prediction:** The project does not build a traffic-flow or future traffic prediction system.
+- **Navigation:** The project does not provide route planning or navigation functionality.
+- **Law Enforcement System:** The project does not implement an enforcement or policing system.
+- **Personal Data:** No private or personally identifiable information is intentionally processed.
+- **Raw/Bronze/Silver Visualization:** Power BI dashboards are not connected directly to raw, Bronze, or Silver datasets.
+- **Kafka Deployment:** Kafka is not installed or deployed as part of the implementation.
+- **Complete Dataset in GitHub:** Large source datasets are not committed to the GitHub repository.
+- **Unexplained Code:** Team members must understand and be able to explain the notebooks, SQL queries, transformations, and dashboard logic used in the project.
+- **End-of-Project Documentation Only:** Documentation is maintained progressively through weekly submissions rather than being created only at the end.
 
-### Key Exclusions
+---
 
-- **No Traffic Prediction or Navigation System:** The project does not build traffic prediction, navigation, or law enforcement applications.
-- **No Personal or Private Data:** Only official UK Department for Transport (STATS19) open data is used; no personal or confidential data is included.
-- **No Direct-to-Raw Visualization:** Power BI connects only to **Gold** tables and never directly to Raw, Bronze, or Silver data.
-- **No Kafka Installation:** Kafka concepts are discussed for design awareness, but Kafka is not installed or configured.
-- **No Full Dataset on GitHub:** The complete 120,000-record dataset remains in Databricks and is not committed to GitHub.
-- **No Final-Week-Only Submission:** Weekly progress and evidence must be documented throughout the project instead of submitting everything at the end.
-- **No Unexplained AI-Generated Work:** Every notebook, SQL query, and code implementation must be understandable and explainable by the project team.
 ## 6. Success Criteria
 
-### Simple Paragraph
+The RoadSafe project will be considered successful when the team delivers a working and documented data engineering pipeline that converts source road safety data into trusted analytical outputs.
 
-The **RoadSafe** project is considered successful if it delivers a complete, reliable, and well-documented data engineering solution within 12 weeks. The project should provide a trusted end-to-end lakehouse pipeline, high-quality analytics, a functional Power BI dashboard, a working streaming simulation, and comprehensive documentation that demonstrates the team's understanding of the entire system.
+### Success Measures
 
-### Key Success Criteria
+- **Working Data Pipeline:** Data successfully moves through the Bronze, Silver, and Gold layers.
+- **Data Quality:** Defined validation rules identify invalid or inconsistent records.
+- **Traceability:** Source data can be traced through the processing layers to the final analytical outputs.
+- **Trusted Gold Data:** Gold tables contain validated and business-ready metrics.
+- **Power BI Dashboard:** The dashboard provides useful visualizations for road safety analysis using Gold-layer data.
+- **Streaming Demonstration:** Simulated incident data can be processed through the planned streaming workflow.
+- **Documentation:** GitHub contains the required project documentation, notebooks, weekly logs, and supporting evidence.
+- **Team Understanding:** All team members can explain the project's architecture, data flow, transformations, and dashboard outputs.
 
-- **End-to-End Pipeline:** Successfully transforms raw data through the **Bronze**, **Silver**, **Data Quality**, and **Gold** layers.
-- **Traceable Analytics:** All dashboard visuals are built exclusively from **Gold** tables, ensuring complete data traceability.
-- **Data Quality Management:** Detects, validates, and quarantines invalid or inconsistent records instead of deleting them.
-- **Power BI Dashboard:** Delivers three dashboard views—**Safety Overview**, **Risk Hotspots**, and **Live Incident Feed**—that support stakeholder decision-making.
-- **Streaming Simulation:** Processes live JSON incident alerts using **Structured Streaming** while handling late, duplicate, and malformed records reliably.
-- **Team Understanding:** Every team member can explain the complete pipeline, architecture, and implementation during the final presentation.
-- **Project Documentation:** Maintains a complete GitHub repository containing Databricks notebooks, weekly progress evidence, and all final project deliverables.
+---
+
+## 7. Initial Assumptions
+
+The following assumptions were established during project framing:
+
+- The required STATS19 datasets are available from the UK Department for Transport.
+- Databricks Free Edition is sufficient for the academic implementation.
+- The project will use Spark SQL and PySpark for data processing.
+- Power BI will consume validated Gold-layer outputs.
+- Simulated incident data will be used where real-time incident data is not available.
+- Large source datasets will remain outside the GitHub repository.
+
+---
+
+## 8. Project Constraints
+
+- The project must be completed within the defined academic project timeline.
+- The implementation should use the tools and architecture specified in the project requirements.
+- Large datasets should not be unnecessarily committed to GitHub.
+- The solution should remain understandable and explainable by all team members.
+- Weekly progress and implementation evidence must be maintained throughout the project.
+
+---
+
+## 9. Week 01 Outcome
+
+During Week 01, the team established the foundation of the RoadSafe project by defining the engineering problem, identifying stakeholders, establishing project boundaries, and selecting the Medallion Architecture as the overall data processing approach.
+
+The team also established the principle that analytical dashboards should use trusted Gold-layer data rather than raw datasets. These decisions provide the foundation for subsequent data exploration, ingestion, transformation, data quality validation, and dashboard development.
