@@ -1,0 +1,24 @@
+collision_year,vehicle_type,vehicle_type_name,vehicle_involvement_count,gold_created_at
+2024,17,Agricultural vehicle,395,2026-10-05T13:45:45.019Z
+2024,19,Van / Goods vehicle <= 3.5 tonnes,11099,2026-10-05T13:45:45.019Z
+2024,18,Tram / Light rail,23,2026-10-05T13:45:45.019Z
+2024,1,Pedal cycle,15166,2026-10-05T13:45:45.019Z
+2024,99,Unknown,275,2026-10-05T13:45:45.019Z
+2024,20,Goods vehicle > 3.5 to < 7.5 tonnes,766,2026-10-05T13:45:45.019Z
+2024,5,Motorcycle over 500cc,4460,2026-10-05T13:45:45.019Z
+2024,97,Motorcycle - unknown cc,618,2026-10-05T13:45:45.019Z
+2024,2,Motorcycle 50cc and under,848,2026-10-05T13:45:45.019Z
+2024,21,Goods vehicle >= 7.5 tonnes,2457,2026-10-05T13:45:45.019Z
+2024,4,Motorcycle over 125cc to 500cc,1866,2026-10-05T13:45:45.019Z
+2024,8,Taxi / Private hire car,2888,2026-10-05T13:45:45.019Z
+2024,98,Goods vehicle - unknown weight,713,2026-10-05T13:45:45.019Z
+2024,90,Other vehicle,1181,2026-10-05T13:45:45.019Z
+2024,11,Bus / Coach,3105,2026-10-05T13:45:45.019Z
+2024,-1,Not known,1348,2026-10-05T13:45:45.019Z
+2024,9,Car,124247,2026-10-05T13:45:45.019Z
+2024,10,Minibus,299,2026-10-05T13:45:45.019Z
+2024,3,Motorcycle over 50cc to 125cc,8759,2026-10-05T13:45:45.019Z
+2024,999,Unknown / Unclassified,341,2026-10-05T13:45:45.019Z
+2024,23,Electric motorcycle,415,2026-10-05T13:45:45.019Z
+2024,22,Mobility scooter,316,2026-10-05T13:45:45.019Z
+2024,16,Ridden horse,70,2026-10-05T13:45:45.019Z
