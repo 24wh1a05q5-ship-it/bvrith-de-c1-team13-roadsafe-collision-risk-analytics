@@ -1,7 +1,7 @@
 # Week 08 Log — Power BI Dashboard and Gold Hand-off
 
 **Week:** 8  
-**Date range:** [Add actual Week 8 dates]  
+**Date range:** 18-09-2026 - 02-10-2026  
 **Team:** 13  
 **Project:** Roadsafe Collision Risk Analytics 
 
@@ -19,18 +19,18 @@ Validate the Gold-to-Power-BI hand-off, build the required dashboard pages and m
 
 | Task | Owner | Status | Evidence |
 |---|---|---|---|
-| Reviewed and selected approved Gold tables for Power BI | Harshika / Team | Done | `notebooks/05_gold_aggregations.ipynb` |
-| Created dashboard-ready monthly collision Gold table | Harshika / Team | Done | `gold_monthly_collision_trends` |
-| Created readable vehicle type Gold table | Harshika / Team | Done | `gold_vehicle_type_readable` |
-| Created readable casualty severity Gold table | Harshika / Team | Done | `gold_casualty_severity_readable` |
-| Created vehicle propulsion Gold table | Harshika / Team | Done | `gold_vehicle_propulsion_readable` |
-| Prepared Power BI export/handoff notebook | Harshika / Team | Done | `notebooks/06_powerbi_export.ipynb` |
-| Built Collision Trends dashboard page | Harshika / Team | Done | Power BI screenshot |
-| Built Vehicle Type Analysis dashboard page | Harshika / Team | Done | Power BI screenshot |
-| Built Casualty Severity Analysis dashboard page | Harshika / Team | Done | Power BI screenshot |
-| Built Vehicle Propulsion Analysis dashboard page | Harshika / Team | Done | Power BI screenshot |
-| Added Power BI measures and KPI cards | Harshika / Team | Done | Power BI report |
-| Validated dashboard fields and Gold-table grain | Harshika / Team | Done | Databricks / Power BI evidence |
+| Reviewed and selected approved Gold tables for Power BI | Harshika | Done | `notebooks/05_gold_aggregations.ipynb` |
+| Created dashboard-ready monthly collision Gold table | Aishwarya| Done | `gold_monthly_collision_trends` |
+| Created readable vehicle type Gold table | Avishka| Done | `gold_vehicle_type_readable` |
+| Created readable casualty severity Gold table | Harshika| Done | `gold_casualty_severity_readable` |
+| Created vehicle propulsion Gold table | Aishwarya| Done | `gold_vehicle_propulsion_readable` |
+| Prepared Power BI export/handoff notebook | Harshika| Done | `notebooks/06_powerbi_export.ipynb` |
+| Built Collision Trends dashboard page | Avishka| Done | Power BI screenshot |
+| Built Vehicle Type Analysis dashboard page | Harshika| Done | Power BI screenshot |
+| Built Casualty Severity Analysis dashboard page | Aishwarya| Done | Power BI screenshot |
+| Built Vehicle Propulsion Analysis dashboard page | Harshika| Done | Power BI screenshot |
+| Added Power BI measures and KPI cards | Harshika| Done | Power BI report |
+| Validated dashboard fields and Gold-table grain | Avishka| Done | Databricks / Power BI evidence |
 
 ---
 
