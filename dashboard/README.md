@@ -4,7 +4,7 @@
 
 This dashboard provides a Power BI reporting layer over the approved Week 7 Gold tables.
 
-The dashboard is designed to provide clear views of:
+The dashboard provides clear views of:
 
 - Monthly collision trends
 - Vehicle type involvement
@@ -12,6 +12,8 @@ The dashboard is designed to provide clear views of:
 - Vehicle propulsion codes
 
 Power BI uses only the approved Gold hand-off tables and does not directly read from Bronze, Candidate Silver, Quarantine, or raw source data.
+
+Week 9 refined and validated the existing Week 8 Power BI solution rather than rebuilding it from scratch.
 
 ---
 
@@ -82,7 +84,9 @@ They are therefore kept as separate Power BI tables rather than being directly j
 
 No unsupported many-to-many relationship was introduced between the independent Gold summary tables.
 
-The dashboard visuals use the measures from their respective owning Gold tables.
+The dashboard visuals use measures from their respective owning Gold tables.
+
+The independent Gold tables remain independent where no safe shared relationship is required.
 
 ---
 
@@ -104,21 +108,32 @@ DIVIDE(
     SUM(gold_monthly_collision_trends[collision_count])
 )
 
-This measure is formatted as a percentage with two decimal places.
+Formatted as a percentage with two decimal places.
 
 Distinct Vehicle Types
 Distinct Vehicle Types =
-DISTINCTCOUNT(gold_vehicle_type_readable[vehicle_type_name])
+DISTINCTCOUNT(
+    gold_vehicle_type_readable[vehicle_type_name]
+)
 Distinct Severity Categories
 Distinct Severity Categories =
-DISTINCTCOUNT(gold_casualty_severity_readable[casualty_severity_name])
+DISTINCTCOUNT(
+    gold_casualty_severity_readable[casualty_severity_name]
+)
 Distinct Propulsion Codes
 Distinct Propulsion Codes =
 DISTINCTCOUNT(
     gold_vehicle_propulsion_readable[propulsion_type_name]
 )
+
+These measures retain the same business meaning established during Week 8.
+
 6. Dashboard Pages
 Page 1 — Collision Trends
+
+Business question:
+
+How does collision volume and severe collision activity vary over time and across urban/rural areas?
 
 Visuals include:
 
@@ -133,7 +148,13 @@ Month slicer
 
 The period_label field is sorted using month_sort.
 
+The Month slicer was tested during Week 9 and is functioning as intended.
+
 Page 2 — Vehicle Type Analysis
+
+Business question:
+
+How are vehicle involvements distributed across vehicle types?
 
 Visuals include:
 
@@ -143,7 +164,14 @@ Vehicle Involvement by Type
 Vehicle Type Distribution
 Top Vehicle Types by Involvement
 Vehicle Type slicer
+
+The Vehicle Type slicer was tested during Week 9 and is functioning as intended.
+
 Page 3 — Casualty Severity Analysis
+
+Business question:
+
+How are casualties distributed by severity and age group?
 
 Visuals include:
 
@@ -153,7 +181,14 @@ Casualties by Severity
 Casualty Severity Distribution
 Casualties by Age Group and Severity
 Age Group slicer
+
+The Age Group slicer was tested during Week 9 and is functioning as intended.
+
 Page 4 — Vehicle Propulsion Analysis
+
+Business question:
+
+How are vehicle records distributed across the available propulsion codes?
 
 Visuals include:
 
@@ -162,7 +197,26 @@ Propulsion Codes KPI
 Vehicle Count by Propulsion Code
 Vehicle Propulsion Distribution
 Propulsion Type slicer
-7. Data Refresh and Source
+
+The Propulsion Type slicer was tested during Week 9 and is functioning as intended.
+
+7. Interaction and Filter Behavior
+
+The dashboard contains slicers that operate within their relevant Gold-table reporting scope.
+
+Validated slicers:
+
+Page	Slicer	Status
+Collision Trends	Month	Working
+Vehicle Type Analysis	Vehicle Type	Working
+Casualty Severity Analysis	Age Group	Working
+Vehicle Propulsion Analysis	Propulsion Type	Working
+
+The dashboard was interaction-tested during Week 9.
+
+Independent Gold tables were not connected with unsupported relationships merely to force common filtering behavior.
+
+8. Data Refresh and Source
 
 The dashboard is based on controlled Gold exports produced from the approved Gold tables.
 
@@ -179,37 +233,62 @@ gold_vehicle_propulsion_readable.csv
 
 The exported values were not manually modified after generation.
 
-8. Validation and Reconciliation
+9. Validation and Reconciliation
 
 The dashboard was checked against the owning Gold tables.
 
-For gold_monthly_collision_trends, the following Gold totals were reconciled with Power BI:
-
+Overall reconciliation
 Measure	Gold Value	Power BI
 Total Collisions	98,947	98,947
 Severe Collisions	24,477	24,477
 Overall Severe Collision Rate	24.74%	24.74%
+Filtered reconciliation
 
-The remaining dashboard pages were also checked against their respective owning Gold tables and produced the expected results.
+A Week 9 filtered reconciliation was performed on the Collision Trends page.
 
-The reconciliation was performed without manually entering expected values into Power BI.
+Filter:
 
-9. Known Limitations
-The dashboard is a first working Week 8 dashboard.
-The dashboard focuses on functional reporting and validation.
+Month = January
+
+Result:
+
+Measure	Gold Value	Power BI	Result
+Total Collisions	8,153	8,153	PASS
+
+The filtered value was validated using the owning Gold table:
+
+gold_monthly_collision_trends
+
+The reconciliation used the same January filter scope in Power BI and the Gold validation query.
+
+10. Insights
+
+Week 9 insight documentation is maintained separately in:
+
+docs/dashboard_insights.md
+
+The documented insight is based on the final dashboard and a reconciled Gold-layer value.
+
+Insights are written as observations supported by the available Gold data. Causal explanations are not inferred unless directly supported by the approved data.
+
+11. Known Limitations
+The dashboard uses approved Gold summary tables and therefore reflects their defined grains and scopes.
+Independent Gold summary tables remain separate where a safe shared relationship is not required.
 Propulsion values are presented using propulsion codes because a project-approved propulsion mapping was not available in the Week 7 source material.
 Casualty severity code 8 is retained as an explicitly unmapped category rather than assigning an unsupported meaning.
-Further visual refinement, interaction improvements, and explanatory insight development are reserved for Week 9.
-10. Week 9 Handoff
+Dashboard observations describe patterns in the available data and do not establish causal explanations without supporting evidence.
+Filter behavior is limited to the reporting scope of the relevant Gold table where no approved shared dimension exists.
 
-The Week 8 dashboard provides the validated functional foundation for Week 9.
+12. Week 9 Evidence
 
-Future refinement may include:
+Week 9 evidence is stored under:
 
-Visual hierarchy improvements
-Additional interactions
-Dashboard usability refinement
-Explanatory context
-Insight-oriented presentation
+screenshots/
 
-The existing PBIX should be continued rather than rebuilt from scratch.
+Relevant evidence includes:
+
+week09_01_final_model.png
+week09_02_refined_page_01.png
+week09_04_filter_interaction.png
+week09_05_filtered_reconciliation.png
+week09_06_insights_evidence.png
